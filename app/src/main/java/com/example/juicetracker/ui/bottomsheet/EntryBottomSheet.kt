@@ -44,6 +44,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.juicetracker.R
 import com.example.juicetracker.data.Juice
+import com.example.juicetracker.data.JuiceColor
 import com.example.juicetracker.ui.JuiceTrackerViewModel
 import java.util.Locale
 
@@ -104,6 +105,12 @@ fun SheetForm(
             fieldValue = juice.name,
             onValueChange = { name -> onUpdateJuice(juice.copy(name = name)) }
         )
+        ColorSpinnerRow(colorSpinnerPosition = findColorIndex(juice.color), onColorChange = { color ->
+            onUpdateJuice(juice.copy(color = JuiceColor.values().get(color).name))
+        })
+        RatingInputRow(rating =juice.rating , onRatingChange = {
+            onUpdateJuice(juice.copy(rating = it))
+        } )
         TextInputRow(
             inputLabel = stringResource(R.string.juice_description),
             fieldValue = juice.description,

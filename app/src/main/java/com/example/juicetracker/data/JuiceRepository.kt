@@ -16,6 +16,7 @@
 package com.example.juicetracker.data
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 
 /**
  * Interface for [JuiceRepository] which contains method to access and modify juice items
